@@ -150,7 +150,7 @@ predict.msmmodel <- function(object, h=NULL,...){
     smoothed.p <- Msm_smooth_cpp(object$A,object$filtered)
   }
 
-  pred <- Msm_predict(object$g.m, object$para[4], object$n, smoothed.p, object$A, h)
+  pred <- Msm_predict(object$g.m, object$para[4]*sqrt(object$n), object$n, smoothed.p, object$A, h)
   return(pred)
 }
 
